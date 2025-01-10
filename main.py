@@ -6,7 +6,18 @@ from requests.cookies import RequestsCookieJar
 import undetected_chromedriver as webdriver
 from sys import stdout
 from colorama import Fore, init
-
+# ------------------[ PROXY BUAT NONTON BKP BTW FANKY GANTENG ]-------------------#
+try:
+    prox = requests.get(
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
+    ).text
+    open(".proxy.txt", "w").write(prox)
+except Exception as e:
+    print(
+        f" • Koneksi Internet Anda Tidak Terdeteksi Silahkan Cek Kuota Anda"
+    )
+    exit()
+prox = open("./proxy.txt", "r").read().splitlines()
 def countdown(t):
     until = datetime.datetime.now() + datetime.timedelta(seconds=int(t))
     while True:
