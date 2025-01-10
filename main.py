@@ -11,7 +11,7 @@ try:
     prox = requests.get(
         "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=80000&country=all&ssl=all&anonymity=all"
     ).text
-    open(".proxy.txt", "w").write(prox)
+    open("./proxy.txt", "w").write(prox)
 except Exception as e:
     print(
         f" • Koneksi Internet Anda Tidak Terdeteksi Silahkan Cek Kuota Anda"
